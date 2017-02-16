@@ -27,24 +27,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         //STOPPED HERE NEED TO FIX CODE BELOW
         let alert = UIAlertController(title: "Add College:", message: "", preferredStyle: .alert)
-        alert.addTextField { (movieTextField) in
-            movieTextField.placeholder = "Add College Here"
+        alert.addTextField { (nameTextField) in
+            nameTextField.placeholder = "Add College Here"
         }
         
-        alert.addTextField { (yearTextField) in
-            yearTextField.placeholder = "Add Year Here"
+        alert.addTextField { (locationTextField) in
+            locationTextField.placeholder = "Add Location Here"
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(cancelAction)
         let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
-            let movieTextField = alert.textFields?[0]
-            let yearTextField = alert.textFields?[1]
+            let nameTextField = alert.textFields?[0]
+            let locationTextField = alert.textFields?[1]
             
-            self.myMovieObject.append(MovieClass(Title: (movieTextField?.text!)!, Year: (yearTextField?.text!)!))
+            self.myCollegeObject.append(CollegeClass(Name: (nameTextField?.text!)!, Location: (locationTextField?.text!)!))
             
-            self.myTableView.reloadData()
+            self.tableView.reloadData()
             
         }
         alert.addAction(addAction)
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Required function! Sets the # of rows in tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return myMovieObject.count
+        return myCollegeObject.count
     }
     
     //Required function! Sets the info in cells in tableView
@@ -64,9 +64,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //sets cell identifier to one on storyboard!
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         
-        cell.textLabel?.text = myMovieObject[indexPath.row].title
+        cell.textLabel?.text = myCollegeObject[indexPath.row].name
         
-        cell.detailTextLabel?.text = myMovieObject[indexPath.row].year
+        cell.detailTextLabel?.text = myCollegeObject[indexPath.row].location
         return cell
     }
     
@@ -75,10 +75,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         if editingStyle == .delete
         {
-            myMovieObject.remove(at: indexPath.row)
-            myTableView.reloadData()
+            myCollegeObject.remove(at: indexPath.row)
+            tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let detailView = segue.destination as! DetailViewController
+        var selectedRow = tableView.indexPathForSelectedRow?.row
+        detailView.collegeDetail = myCollegeObject[selectedRow!]
+        
+    }
+
 
 }
 
