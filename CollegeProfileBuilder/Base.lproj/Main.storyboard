@@ -108,9 +108,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD6-Om-pDf">
-                                <rect key="frame" x="68" y="498" width="34" height="30"/>
+                                <rect key="frame" x="37" y="542" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonIsTapped:" destination="ouo-ks-EnY" eventType="touchUpInside" id="0T7-9D-kOz"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCL-Yj-Ufx">
                                 <rect key="frame" x="37" y="318" width="308" height="30"/>
@@ -119,6 +122,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSa-Fh-YpL">
+                                <rect key="frame" x="37" y="494" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8n-ps-fRH">
+                                <rect key="frame" x="245" y="542" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go To Website"/>
+                                <connections>
+                                    <action selector="goToWebsite:" destination="ouo-ks-EnY" eventType="touchUpInside" id="uDH-Fn-OnF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-hQ-GLo">
+                                <rect key="frame" x="122" y="542" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load Image"/>
+                                <connections>
+                                    <action selector="loadImage:" destination="ouo-ks-EnY" eventType="touchUpInside" id="bEn-x3-hMb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -126,6 +152,7 @@
                         <outlet property="collegeLocationTextField" destination="pCL-Yj-Ufx" id="qpm-jp-dhb"/>
                         <outlet property="collegeNameTextField" destination="uhW-Hg-t8m" id="3LW-RB-8A4"/>
                         <outlet property="collegeNumberOfStudentsTextField" destination="0sm-qV-VNb" id="G3F-kJ-lIC"/>
+                        <outlet property="collegeWebsiteTextField" destination="VSa-Fh-YpL" id="dZR-hL-4Jt"/>
                         <outlet property="imageView" destination="e5Y-Gn-qeO" id="ALt-X9-iM0"/>
                     </connections>
                 </viewController>
