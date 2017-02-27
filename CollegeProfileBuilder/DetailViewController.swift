@@ -45,6 +45,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         collegeDetail.numberOfStudents = collegeNumberOfStudentsTextField.text!
         
         collegeDetail.website = collegeWebsiteTextField.text!
+        
+        collegeDetail.image = imageView.image
     }
     
     @IBAction func goToWebsite(_ sender: Any)
